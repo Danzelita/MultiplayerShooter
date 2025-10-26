@@ -16,8 +16,11 @@ namespace Shooter.Code.Gameplay.Characters.Player
         
         private MultiplayerManager _mupliplayerManager;
 
-        public void Init(MultiplayerManager mupliplayerManager) => 
+        public void Init(MultiplayerManager mupliplayerManager)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
             _mupliplayerManager = mupliplayerManager;
+        }
 
         private void Update()
         {
