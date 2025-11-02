@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0968d20a3ec4a81934fb44908436679, type: 3}
+  m_Name: '!GunsSettings'
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunsSettings
+  Guns:
+  - {fileID: 11400000, guid: cd636c41eb1ee114a99800e50b62e092, type: 2}
+  - {fileID: 11400000, guid: 7bb3b60264048314dbeca059b4f854e4, type: 2}
+  - {fileID: 11400000, guid: ff642099de3e3164abe148d0ff3011b2, type: 2}
+  - {fileID: 11400000, guid: 7065d45053f5e4f44a16425f2a4b5725, type: 2}
+  - {fileID: 11400000, guid: 4f6e802a41328af41b6a7327c358910c, type: 2}
+  - {fileID: 11400000, guid: eb22e0c49d54b9a428ef8ce360a937eb, type: 2}

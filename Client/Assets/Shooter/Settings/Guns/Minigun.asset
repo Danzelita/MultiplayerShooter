@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2e32dd18004c608a915bd9d28de0a9, type: 3}
+  m_Name: Minigun
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunSettings
+  Id: Minigun
+  Bullet: {fileID: 11400000, guid: e071ee9314c365b4097bf958d0ec67f0, type: 2}
+  Cooldown: 0.06
+  BulletsPerShoot: 1
+  DamagePerBullet: 2
+  BulletSpeed: 15
+  Spread: 6
+  Icon: {fileID: 21300000, guid: 93f9fe233cd764144928cdf4930d4a47, type: 3}
+  PlayerGunPrefab: {fileID: 231664315332419602, guid: 9346edc2bf3e53943bfb9a04fa652965, type: 3}
+  EnemyGunPrefab: {fileID: 4270101940760067287, guid: b9aa0f907d741a84d93aea09f5692693, type: 3}

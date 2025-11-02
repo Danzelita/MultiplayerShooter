@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 196512256d0f409f8ea1106bc5e067fc, type: 3}
+  m_Name: '!LootsSettings'
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.Loots.LootsSettings
+  Loots:
+  - {fileID: 11400000, guid: 7913fcdf745104b499071633f29e6f47, type: 2}
+  - {fileID: 11400000, guid: 2e83ec4f8389b6246975345133246dbc, type: 2}
+  - {fileID: 11400000, guid: d1b5938857381bc40bfd25de0a43e5a4, type: 2}
+  - {fileID: 11400000, guid: 49b9cff8962f6114d9f262679fa6f5e2, type: 2}
+  - {fileID: 11400000, guid: 4886779c34a00c044b6e8d46c4b460dd, type: 2}
+  - {fileID: 11400000, guid: fa6d95061ea04764db74cdda5cf50e77, type: 2}
