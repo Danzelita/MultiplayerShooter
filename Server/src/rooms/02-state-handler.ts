@@ -60,7 +60,7 @@ export class Player extends Schema {
 }
 export class Loot extends Schema {
     @type("string")
-    id = 'LootPistol';
+    type = 'LootPistol';
     
     @type("number")
     pX = Math.floor(Math.random() * 25) - 12.5;
@@ -75,7 +75,7 @@ export class Loot extends Schema {
     constructor(lootId: string, position: Vector3) {
         super();
         
-        this.id = lootId;
+        this.type = lootId;
         this.pX = position.X;
         this.pY = position.Y;
         this.pZ = position.Z;
@@ -166,9 +166,9 @@ export class StateHandlerRoom extends Room<State> {
 
         for (let i = 0; i < this.state.lootSpawnPoints.Points.length; i++) {
             const position = this.state.lootSpawnPoints.GetNextPoint();
-            const lootId = this.state.GetRandomLootId();
+            const lootType = this.state.GetRandomLootId();
 
-            this.state.CreateLoot(lootId, position);
+            this.state.CreateLoot(lootType, position);
         }
         
 
@@ -193,7 +193,7 @@ export class StateHandlerRoom extends Room<State> {
                 Y: data.pY,
                 Z: data.pZ, 
             }
-            this.state.CreateLoot(data.id, position);
+            this.state.CreateLoot(data.type, position);
         });
 
         this.onMessage("changeGun", (client, data) => {
@@ -224,12 +224,8 @@ export class StateHandlerRoom extends Room<State> {
                 }
 
                 const position = this.state.playerSpawnPoints.GetNextPoint();
+                const message = JSON.stringify(position);
 
-                const X = position.X;
-                const Y = position.Y;
-                const Z = position.Z;
-
-                const message = JSON.stringify({X, Y, Z});
                 client.send("Restart", message);
             }
         });
@@ -257,6 +253,8 @@ export class StateHandlerRoom extends Room<State> {
     }
 
 }
+
+//Код ниже мне помог написать чат гпт
 class Vector3 {
     X: number;
     Y: number;
@@ -272,12 +270,13 @@ class Vector3 {
 class SpawnPoints {
     Points: Vector3[];
 
+    
     constructor(raw: any) {
         this.Points = raw.Points.map(
             (p: any) => new Vector3(p.X, p.Y, p.Z)
         );
     }
-
+//Всё, дальше я сам
     lastPointIndex = 0;
     GetNextPoint(){
         const lenght = this.Points.length;

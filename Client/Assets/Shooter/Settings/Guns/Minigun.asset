@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e32dd18004c608a915bd9d28de0a9, type: 3}
   m_Name: Minigun
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunSettings
-  Id: Minigun
+  Type: Minigun
   Bullet: {fileID: 11400000, guid: e071ee9314c365b4097bf958d0ec67f0, type: 2}
   Cooldown: 0.06
   BulletsPerShoot: 1

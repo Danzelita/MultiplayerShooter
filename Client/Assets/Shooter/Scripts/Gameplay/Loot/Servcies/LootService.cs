@@ -22,7 +22,7 @@ namespace Shooter.Scripts.Gameplay.Loot.Servcies
             _lootsSettings = lootsSettings;
             
             foreach (var lootSettings in lootsSettings.Loots)
-                _lootSettingsMap[lootSettings.Id] = lootSettings;
+                _lootSettingsMap[lootSettings.Type] = lootSettings;
         }
         public void Init(MapSchema<Multiplayer.generated.Loot> stateLoots)
         {
@@ -44,7 +44,7 @@ namespace Shooter.Scripts.Gameplay.Loot.Servcies
 
         public void CreateLoot(string key, Multiplayer.generated.Loot loot)
         {
-            LootSettings lootSettings = _lootSettingsMap[loot.id];
+            LootSettings lootSettings = _lootSettingsMap[loot.type];
             
             LootView lootView = Object.Instantiate(lootSettings.Prefab, GetSpawnPosition(loot), Quaternion.identity);
             _lootsMap[key] = lootView;
@@ -54,19 +54,20 @@ namespace Shooter.Scripts.Gameplay.Loot.Servcies
                 _multiplayerManager.SendToServer("pickUp", key);
             });
         }
-        private Vector3 GetSpawnPosition(Multiplayer.generated.Loot loot) => 
-            new(loot.pX, loot.pY + 1f, loot.pZ);
 
-        public void DropByLootIdAtPosition(string lootId, Vector3 at)
+        public void DropByLootTypeAtPosition(string lootType, Vector3 at)
         {
-            LootSettings lootSettings = _lootsSettings.Loots.First(l => l.LootId == lootId);
+            LootSettings lootSettings = _lootsSettings.Loots.First(l => l.LootType == lootType);
             
-            _dropData["id"] = lootSettings.Id;
+            _dropData["type"] = lootSettings.Type;
             _dropData["pX"] = at.x;
             _dropData["pY"] = at.y;
             _dropData["pZ"] = at.z;
             
             _multiplayerManager.SendToServer("drop", _dropData);
         }
+
+        private Vector3 GetSpawnPosition(Multiplayer.generated.Loot loot) => 
+            new(loot.pX, loot.pY + 1f, loot.pZ);
     }
 }

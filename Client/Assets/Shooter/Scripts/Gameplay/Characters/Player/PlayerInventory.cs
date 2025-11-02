@@ -43,28 +43,28 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
             
             UpdateInventory();
 
-            if (_inventory.TryGetValue(_currentSlot, out string id) == false)
+            if (_inventory.TryGetValue(_currentSlot, out string gunType) == false)
                 return;
 
             GunSettings gunSettings = _settingsProvider
                 .GameSettings
                 .GunsSettings
                 .Guns
-                .FirstOrDefault(g => g.Id == id);
+                .FirstOrDefault(g => g.Type == gunType);
 
             UpdateInventory();
             
             if (gunSettings == null)
                 return;
 
-            if (_playerGunsMap.TryGetValue(id, out var playerGun))
+            if (_playerGunsMap.TryGetValue(gunType, out var playerGun))
             {
                 playerGun.gameObject.SetActive(true);
             }
             else
             {
-                _playerGunsMap[id] = _gunFactory.CreatePlayerGun(gunSettings);
-                _playerGunsMap[id].gameObject.SetActive(true);
+                _playerGunsMap[gunType] = _gunFactory.CreatePlayerGun(gunSettings);
+                _playerGunsMap[gunType].gameObject.SetActive(true);
             }
             
             UpdateInventory();
@@ -74,10 +74,10 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
         {
             shootData = new ShootData();
 
-            if (_inventory.TryGetValue(_currentSlot, out string gunId) == false)
+            if (_inventory.TryGetValue(_currentSlot, out string gunType) == false)
                 return false;
 
-            if (_playerGunsMap.TryGetValue(gunId, out PlayerGun playerGun))
+            if (_playerGunsMap.TryGetValue(gunType, out PlayerGun playerGun))
             {
                 bool result = playerGun.TryShoot(out ShootData data);
                 shootData = data;
@@ -89,29 +89,29 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
         
         public void TryPickUp()
         {
-            string lootId = _playerLootCollector.TryPickUp();
+            string lootType = _playerLootCollector.TryPickUp();
 
-            if (string.IsNullOrEmpty(lootId))
+            if (string.IsNullOrEmpty(lootType))
                 return;
             
             if (_inventory.ContainsKey(_currentSlot)) 
                 TryDrop();
             
-            _inventory[_currentSlot] = lootId;
+            _inventory[_currentSlot] = lootType;
             SetCurrentGunByIndex(_currentSlot);
             
             UpdateInventory();
         }
 
         public string GetCurrentGunId() => 
-            _inventory.TryGetValue(_currentSlot, out string gunId) ? gunId : string.Empty;
+            _inventory.TryGetValue(_currentSlot, out string gunType) ? gunType : string.Empty;
 
         public void TryDrop()
         {
-            if (_inventory.TryGetValue(_currentSlot, out string id) == false) 
+            if (_inventory.TryGetValue(_currentSlot, out string gunType) == false) 
                 return;
             
-            _lootService.DropByLootIdAtPosition(id, transform.position);
+            _lootService.DropByLootTypeAtPosition(gunType, transform.position);
             _inventory.Remove(_currentSlot);
             SetCurrentGunByIndex(_currentSlot);
 
@@ -126,8 +126,8 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
 
         private void UpdateInventory()
         {
-            bool avalibleItem = _inventory.TryGetValue(_currentSlot, out string id);
-            InventoryChanged?.Invoke(_currentSlot, avalibleItem ? id : string.Empty);
+            bool avalibleItem = _inventory.TryGetValue(_currentSlot, out string gunType);
+            InventoryChanged?.Invoke(_currentSlot, avalibleItem ? gunType : string.Empty);
             CurrentSlotChanged?.Invoke(_currentSlot);
         }
     }

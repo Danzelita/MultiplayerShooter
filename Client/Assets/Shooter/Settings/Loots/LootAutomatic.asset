@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcac2f84ff04d74a0100ca75b7dcc34, type: 3}
   m_Name: LootAutomatic
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.Loots.LootSettings
-  Id: LootAutomatic
-  LootId: Automatic
+  Type: LootAutomatic
+  LootType: Automatic
   Prefab: {fileID: 8121362264602744548, guid: fb96bb141c23b4648a2cba24bd48a2d5, type: 3}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcac2f84ff04d74a0100ca75b7dcc34, type: 3}
   m_Name: LootRocketLauncher
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Settings.Loots.LootSettings
-  Id: LootRocketLauncher
-  LootId: RocketLauncher
+  Type: LootRocketLauncher
+  LootType: RocketLauncher
   Prefab: {fileID: 4733158056652060403, guid: 61a13da62e66cf440b0898cc6df2bcb2, type: 3}

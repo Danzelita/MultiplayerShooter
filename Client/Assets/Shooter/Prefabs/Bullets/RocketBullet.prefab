@@ -310,8 +310,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Gameplay.Guns.Bullets.RocketBullet
   _lifeTime: 4
   _rigidbody: {fileID: 464503656020443935}
-  _upwardModifier: 2.75
-  _explosionForce: 10.5
+  _upwardModifier: 3.25
+  _explosionForce: 11.25
   _radius: 3.75
   _explodionEffect: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
   _forceCurve:

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e32dd18004c608a915bd9d28de0a9, type: 3}
   m_Name: RocketLauncher
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunSettings
-  Id: RocketLauncher
+  Type: RocketLauncher
   Bullet: {fileID: 11400000, guid: 02285782a3e87e94faa23dd4543c41ed, type: 2}
   Cooldown: 1.15
   BulletsPerShoot: 1

@@ -11,7 +11,7 @@ namespace Shooter.Scripts.Multiplayer.generated
 {
 	public partial class Loot : Schema {
 		[Type(0, "string")]
-		public string id = default(string);
+		public string type = default(string);
 
 		[Type(1, "number")]
 		public float pX = default(float);

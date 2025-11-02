@@ -13,7 +13,7 @@ namespace Shooter.Scripts.Gameplay.Guns
 
         public virtual void Init(GunSettings gunSettings)
         {
-            _gunId = gunSettings.Id;
+            _gunId = gunSettings.Type;
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Shooter.Scripts.Settings.Guns
     [CreateAssetMenu(fileName = "GunSettings", menuName = "GameSettings/Guns/New Gun Settings")]
     public class GunSettings : ScriptableObject
     {
-        public string Id;
+        public string Type;
 
         public BulletSettings Bullet;
         public float Cooldown;

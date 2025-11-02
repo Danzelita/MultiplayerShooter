@@ -6,8 +6,8 @@ namespace Shooter.Scripts.Settings.Loots
     [CreateAssetMenu(fileName = "LootSettings", menuName = "GameSettings/Loots/New Loot Settings")]
     public class LootSettings : ScriptableObject
     {
-        public string Id;
-        public string LootId;
+        public string Type;
+        public string LootType;
         public LootView Prefab;
     }
 }

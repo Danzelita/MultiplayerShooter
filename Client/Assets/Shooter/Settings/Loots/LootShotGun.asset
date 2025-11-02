@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcac2f84ff04d74a0100ca75b7dcc34, type: 3}
   m_Name: LootShotGun
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.Loots.LootSettings
-  Id: LootShotGun
-  LootId: ShotGun
+  Type: LootShotGun
+  LootType: ShotGun
   Prefab: {fileID: 3134155219887161371, guid: a5b47dba6ed27ff45bab24a5a967631a, type: 3}

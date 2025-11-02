@@ -34,7 +34,7 @@ namespace Shooter.Scripts.Gameplay.Characters.Enemy
         {
             DisableAllGuns();
             
-            GunSettings gunSettings = _settingsProvider.GameSettings.GunsSettings.Guns.FirstOrDefault(g => g.Id == id);
+            GunSettings gunSettings = _settingsProvider.GameSettings.GunsSettings.Guns.FirstOrDefault(g => g.Type == id);
 
             if (gunSettings == null)
                 return;

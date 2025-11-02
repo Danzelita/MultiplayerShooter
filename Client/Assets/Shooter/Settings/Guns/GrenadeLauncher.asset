@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e32dd18004c608a915bd9d28de0a9, type: 3}
   m_Name: GrenadeLauncher
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunSettings
-  Id: GrenadeLauncher
+  Type: GrenadeLauncher
   Bullet: {fileID: 11400000, guid: 44d3e3854fe266344bb59db6c93dce8c, type: 2}
   Cooldown: 0.55
   BulletsPerShoot: 1

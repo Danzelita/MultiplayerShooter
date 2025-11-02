@@ -7,7 +7,7 @@ namespace Shooter.Scripts.Multiplayer
     [CreateAssetMenu(fileName = "SpawnPointsJsonGenerator", menuName = "SpawnPointsJsonGenerator")]
     public class SpawnPointsJsonGenerator : ScriptableObject
     {
-        public string Tag;
+        public string Tag; //Есть либо Player либо Loot
         
         public string Json;
         

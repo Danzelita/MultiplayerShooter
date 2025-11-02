@@ -32,7 +32,7 @@ namespace Shooter.Scripts.UI
             if (_index != index)
                 return;
 
-            GunSettings gunSettings = _gunsSettings.Guns.FirstOrDefault(g => g.Id == gunId);
+            GunSettings gunSettings = _gunsSettings.Guns.FirstOrDefault(g => g.Type == gunId);
             _icon.gameObject.SetActive(gunSettings);
             _icon.sprite = gunSettings?.Icon;
             _text.text = gunId;

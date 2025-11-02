@@ -14,7 +14,7 @@ namespace Shooter.Scripts.Gameplay.Loot
 
         public void Init(Multiplayer.generated.Loot loot, LootSettings lootSettings, Action onPickup)
         {
-            _lootId = lootSettings.LootId;
+            _lootId = lootSettings.LootType;
             _loot = loot;
             _onPickup = onPickup;
             
@@ -25,18 +25,18 @@ namespace Shooter.Scripts.Gameplay.Loot
         {
         }
 
-        public void Destroy()
-        {
-            _loot.OnChange -= OnChange;
-            
-            Destroy(gameObject);
-        }
-
         public string PickUp()
         {
             _onPickup?.Invoke();
             gameObject.SetActive(false);
             return _lootId;
+        }
+
+        public void Destroy()
+        {
+            _loot.OnChange -= OnChange;
+            
+            Destroy(gameObject);
         }
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bcac2f84ff04d74a0100ca75b7dcc34, type: 3}
   m_Name: LootMinigun
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.Loots.LootSettings
-  Id: LootMinigun
-  LootId: Minigun
+  Type: LootMinigun
+  LootType: Minigun
   Prefab: {fileID: 8496792654474272462, guid: 954fd92a05b2cbc4a9d9f293baf5b394, type: 3}
