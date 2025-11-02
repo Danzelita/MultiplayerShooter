@@ -87,8 +87,7 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
                 out Vector3 position,
                 out Vector3 velocity,
                 out float rotationX,
-                out float rotationY,
-                out bool isSneak
+                out float rotationY
                 );
 
             _data[PlayerFields.PositionX] = position.x;
@@ -101,8 +100,6 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
 
             _data[PlayerFields.RotationX] = rotationX;
             _data[PlayerFields.RotationY] = rotationY;
-
-            _data[PlayerFields.Crouch] = isSneak;
 
             _mupliplayerManager.SendToServer("move", _data);
         }

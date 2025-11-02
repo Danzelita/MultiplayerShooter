@@ -61,10 +61,10 @@ namespace Shooter.Scripts.Gameplay.Loot.Servcies
         {
             LootSettings lootSettings = _lootsSettings.Loots.First(l => l.LootId == lootId);
             
+            _dropData["id"] = lootSettings.Id;
             _dropData["pX"] = at.x;
             _dropData["pY"] = at.y;
             _dropData["pZ"] = at.z;
-            _dropData["id"] = lootSettings.Id;
             
             _multiplayerManager.SendToServer("drop", _dropData);
         }

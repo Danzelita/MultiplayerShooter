@@ -92,7 +92,7 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
 
         private void RotateY()
         {
-            _rigidbody.angularVelocity = Vector3.up * _rotateY;
+            _rigidbody.MoveRotation(_rigidbody.rotation * Quaternion.Euler(Vector3.up * _rotateY));
             _rotateY = 0f;
         }
 
@@ -114,16 +114,14 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
             out Vector3 position,
             out Vector3 velocity,
             out float rotationX,
-            out float rotationY,
-            out bool isSneak)
+            out float rotationY
+            )
         {
             position = transform.position;
             velocity = _rigidbody.linearVelocity;
 
             rotationX = _headTransform.localEulerAngles.x;
             rotationY = transform.eulerAngles.y;
-            
-            isSneak = _isCrouch;
         }
         public bool IsCrouch() => _isCrouch;
     }

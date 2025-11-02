@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Gameplay.Guns.Bullets.GrenadeBullet
   _lifeTime: 2
   _rigidbody: {fileID: 8895052287396114810}
-  _radius: 3.5
+  _radius: 3.75
   _explodionEffect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   _damageCurve:
     serializedVersion: 2
