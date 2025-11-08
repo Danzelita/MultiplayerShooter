@@ -17,7 +17,7 @@ MonoBehaviour:
   Cooldown: 0.06
   BulletsPerShoot: 1
   DamagePerBullet: 3
-  BulletSpeed: 16.5
+  BulletSpeed: 51.5625
   Spread: 6
   Icon: {fileID: 21300000, guid: 93f9fe233cd764144928cdf4930d4a47, type: 3}
   PlayerGunPrefab: {fileID: 231664315332419602, guid: 9346edc2bf3e53943bfb9a04fa652965, type: 3}

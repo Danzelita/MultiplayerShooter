@@ -35,7 +35,7 @@ namespace Shooter.Scripts.Gameplay.Characters.Player
             float mouseX = Input.GetAxis("Mouse X");
             float mouseY = Input.GetAxis("Mouse Y");
 
-            bool isSneak = Input.GetKey(KeyCode.LeftControl);
+            bool isSneak = Input.GetKey(KeyCode.LeftShift);
             bool isJuming = Input.GetKey(KeyCode.Space);
             bool isShoot = Input.GetMouseButton(0);
 

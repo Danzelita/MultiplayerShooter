@@ -173,7 +173,6 @@ export class StateHandlerRoom extends Room<State> {
         
 
         this.onMessage("move", (client, data) => {
-            console.log("StateHandlerRoom received message from", client.sessionId, ":", data);
             this.state.setMovement(client.sessionId, data);
         });
         this.onMessage("crouch", (client, data) => {

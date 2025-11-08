@@ -312,7 +312,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 464503656020443935}
   _upwardModifier: 3.25
   _explosionForce: 11.25
-  _radius: 3.75
+  _radius: 5.625
   _explodionEffect: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
   _forceCurve:
     serializedVersion: 2
@@ -351,22 +351,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: -0.0027770996
       value: 1
-      inSlope: -0.13181947
-      outSlope: -0.13181947
+      inSlope: -0.06160497
+      outSlope: -0.06160497
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.4603842
+      outWeight: 0.20555557
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -3.3404682
-      outSlope: -3.3404682
+      inSlope: -2.8571458
+      outSlope: -2.8571458
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05403614
+      inWeight: 0.0443213
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

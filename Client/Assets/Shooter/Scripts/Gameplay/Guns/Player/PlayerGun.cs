@@ -54,6 +54,7 @@ namespace Shooter.Scripts.Gameplay.Guns.Player
             for (int i = 0; i < _bullets; i++)
             {
                 Vector3 shootDirection = _bulletSpawnPoint.forward;
+                
                 Vector2 spread = Random.insideUnitCircle * Mathf.Tan(_spread * Mathf.Deg2Rad);
                 Vector3 spreadDir = (shootDirection + _bulletSpawnPoint.TransformDirection(new Vector3(spread.x, spread.y, 0f))).normalized;
                 Vector3 velocity = spreadDir * _bulletSpeed;

@@ -17,6 +17,6 @@ namespace Shooter.Scripts.Multiplayer
             Gizmos.DrawSphere(transform.position, 0.25f);
             Gizmos.DrawRay(transform.position, Vector3.up * 2f);
         }
-    }
 #endif
+    }
 }

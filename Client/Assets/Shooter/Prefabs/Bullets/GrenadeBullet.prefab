@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Gameplay.Guns.Bullets.GrenadeBullet
   _lifeTime: 2
   _rigidbody: {fileID: 8895052287396114810}
-  _radius: 3.75
+  _radius: 5.625
   _explodionEffect: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
   _damageCurve:
     serializedVersion: 2
@@ -127,20 +127,29 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.13181947
-      outSlope: -0.13181947
+      inSlope: -0.036166497
+      outSlope: -0.036166497
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.4603842
+      outWeight: 0.21944447
     - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -3.3404682
-      outSlope: -3.3404682
+      time: 0.6639397
+      value: 0.999454
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.05403614
+      inWeight: 0.33333334
+      outWeight: 0.74069136
+    - serializedVersion: 3
+      time: 0.9972229
+      value: 0
+      inSlope: -9.570939
+      outSlope: -9.570939
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.033340044
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -153,7 +162,7 @@ ConstantForce:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5885878104243597818}
   m_Enabled: 1
-  m_Force: {x: 0, y: -10, z: 0}
+  m_Force: {x: 0, y: -3.5, z: 0}
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
