@@ -8,26 +8,32 @@ namespace Shooter.Scripts.Gameplay.Guns.Enemy
     public class EnemyGun : Gun
     {
         private GunSettings _gunSettings;
+        private float _spread;
+        private int _bullets;
+        private float _bulletSpeed;
 
         public override void Init(GunSettings gunSettings)
         {
             base.Init(gunSettings);
             _gunSettings = gunSettings;
+            _spread = gunSettings.Spread;
+            _bullets = gunSettings.BulletsPerShoot;
+            _bulletSpeed = gunSettings.BulletSpeed;
+            _bulletPrefab = gunSettings.Bullet.Prefab;
         }
 
         public void Shoot(ShootData shootData)
         {
-            foreach (BulletData bulletData in shootData.Bullets) 
-                CreateBullet(_gunSettings.Bullet.Prefab, bulletData);
+            Random.InitState(shootData.Seed);
+            Vector3 spawnPosition = shootData.Pos.ToVector3();
+            Vector3 direction = shootData.Dir.ToVector3();
             
+            for (int i = 0; i < _bullets; i++)
+            {
+                Vector3 spreadDirection = GetSpreadDirection(direction, _spread);
+                CreateBullet(at: spawnPosition, velocity: spreadDirection * _bulletSpeed);
+            }
             OnShoot?.Invoke();
-        }
-
-        private static void CreateBullet(Bullet prefab, BulletData bulletData)
-        {
-            Quaternion toVelocity = Quaternion.LookRotation(bulletData.Vel.ToVector3());
-            Bullet bullet = Instantiate(prefab, bulletData.Pos.ToVector3(), toVelocity);
-            bullet.Init(bulletData.Vel.ToVector3());
         }
     }
 }

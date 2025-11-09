@@ -1,8 +1,9 @@
-using System.Collections.Generic;
+
 using Shooter.Scripts.Data;
 using Shooter.Scripts.Gameplay.Guns.Bullets;
 using Shooter.Scripts.Settings.Guns;
 using UnityEngine;
+
 
 namespace Shooter.Scripts.Gameplay.Guns.Player
 {
@@ -29,47 +30,42 @@ namespace Shooter.Scripts.Gameplay.Guns.Player
             _shootCooldown = gunSettings.Cooldown;
             _spread = gunSettings.Spread;
             _bulletPrefab = gunSettings.Bullet.Prefab;
-
-            _shootData.Bullets = new List<BulletData>();
         }
-        
+
         public bool TryShoot(out ShootData data)
         {
             data = _shootData;
 
             if (Time.time - _lastShootTime < _shootCooldown)
                 return false;
-            
+
             _lastShootTime = Time.time;
 
-            _shootData.Bullets.Clear();
             Shoot(ref data);
             data.GunId = _gunId;
-            
+
             return true;
         }
 
         private void Shoot(ref ShootData data)
         {
+            Vector3 shootDirection = _bulletSpawnPoint.forward;
+            Vector3 spawnPosition = _bulletSpawnPoint.position;
+
+            int seed = Random.Range(0, 99999);
+            Random.InitState(seed);
+            
+            data.Seed = seed;
+            data.Pos = spawnPosition.ToData();
+            data.Dir = shootDirection.ToData();
+            
             for (int i = 0; i < _bullets; i++)
             {
-                Vector3 shootDirection = _bulletSpawnPoint.forward;
-                
-                Vector2 spread = Random.insideUnitCircle * Mathf.Tan(_spread * Mathf.Deg2Rad);
-                Vector3 spreadDir = (shootDirection + _bulletSpawnPoint.TransformDirection(new Vector3(spread.x, spread.y, 0f))).normalized;
-                Vector3 velocity = spreadDir * _bulletSpeed;
-                
-                data.Bullets.Add(CreateBullet(velocity));
+                Vector3 spreadDirection = GetSpreadDirection(shootDirection, _spread);
+                CreateBullet(at: spawnPosition, velocity: spreadDirection * _bulletSpeed, _damage);
             }
-            OnShoot?.Invoke();
-        }
 
-        private BulletData CreateBullet(Vector3 velocity)
-        {
-            Bullet newBullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, _bulletSpawnPoint.rotation);
-            newBullet.Init(velocity, _damage);
-            
-            return new BulletData(_bulletSpawnPoint.position.ToData(), velocity.ToData());
+            OnShoot?.Invoke();
         }
     }
 }

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2e32dd18004c608a915bd9d28de0a9, type: 3}
+  m_Name: Banana
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Settings.GunSettings
+  Type: Banana
+  Bullet: {fileID: 11400000, guid: 1cda7d444d597df4c8483486df6fbcfb, type: 2}
+  Cooldown: 0.5
+  BulletsPerShoot: 1
+  DamagePerBullet: 45
+  BulletSpeed: 25
+  Spread: 0
+  Icon: {fileID: 21300000, guid: e081c9edf5409214dafb600f69108825, type: 3}
+  PlayerGunPrefab: {fileID: 2296412156358435404, guid: 62acd2be695490f4f84f5dfc2378e1ba, type: 3}
+  EnemyGunPrefab: {fileID: 4124165427915567095, guid: 86c4cc4ea49e2df4dbea5b5511e40765, type: 3}

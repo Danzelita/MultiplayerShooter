@@ -900,6 +900,7 @@ PrefabInstance:
     - {fileID: 5856416335524098372, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
     - {fileID: 4447842028431070636, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
     - {fileID: 5540582147839100261, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+    - {fileID: 6384930009332108081, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8497752911199290835, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
     - {fileID: 2951400828955506462, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
@@ -923,6 +924,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8875203837076426252, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5028994067558931997}
+    - targetCorrespondingSourceObject: {fileID: 8875203837076426252, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6041120572126647240}
     - targetCorrespondingSourceObject: {fileID: 8448969510766295783, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3161747366524500996}
@@ -943,6 +947,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 832525470368083281, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
   m_PrefabInstance: {fileID: 990910687504354817}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1407403909001952855 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2182124187829366870, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1457924877208684934 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1872366007321839495, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1629833568930560630 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1972076340941763703, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2935977090471202090 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2701811912373257003, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3655040788626632166 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4573753134789338087, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4869504880553667678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5644022874617111135, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
@@ -953,9 +982,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5633034563003547026, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
   m_PrefabInstance: {fileID: 990910687504354817}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &5236649732191334686 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5002440539128037151, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5466646079529646489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5052196145832441752, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6027081095393533396 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6801581505994986453, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
   m_PrefabInstance: {fileID: 990910687504354817}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7898035366554122016 stripped
@@ -1058,6 +1097,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Gameplay.Characters.EnemyInventory
   _gunContainer: {fileID: 4894536562224083859}
+--- !u!114 &6041120572126647240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569051399592738829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591c93b5d8044969150786c9eff2024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Gameplay.Characters.SkinDisplay
+  _meshRenderers:
+  - {fileID: 5236649732191334686}
+  - {fileID: 6027081095393533396}
+  - {fileID: 3655040788626632166}
+  - {fileID: 8572368409568497724}
+  - {fileID: 1407403909001952855}
+  - {fileID: 2935977090471202090}
+  - {fileID: 1629833568930560630}
+  - {fileID: 1457924877208684934}
+--- !u!23 &8572368409568497724 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8878643957346180669, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}
+  m_PrefabInstance: {fileID: 990910687504354817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8683125917482054886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8448969510766295783, guid: 8b6d6a6d69d21f34a9cd7ba3d10f0908, type: 3}

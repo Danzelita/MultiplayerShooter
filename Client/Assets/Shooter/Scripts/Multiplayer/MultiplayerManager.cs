@@ -111,6 +111,10 @@ namespace Shooter.Scripts.Multiplayer
             playerController.Init(mupliplayerManager: this);
             newPlayer.GetComponent<PlayerCharacter>().Init(player);
             newPlayer.GetComponent<PlayerInventory>().Init(_settingsProvider, new GunFactory(), _lootService);
+
+            SkinDisplay skinDisplay = newPlayer.GetComponent<SkinDisplay>();
+            skinDisplay.Init(_settingsProvider.GameSettings.SkinsSettings);
+            skinDisplay.SetSkin(player.skin);
             
             _room.OnMessage<string>("Restart", playerController.Restart);
         }
@@ -120,6 +124,10 @@ namespace Shooter.Scripts.Multiplayer
             EnemyController newEnemy = Instantiate(_enemyPrefab, GetPlayerSpawnPosition(player), Quaternion.identity);
             newEnemy.GetComponent<EnemyCharacter>()?.Init(multiplayerManager: this, key);
             newEnemy.Init(player);
+            
+            SkinDisplay skinDisplay = newEnemy.GetComponent<SkinDisplay>();
+            skinDisplay.Init(_settingsProvider.GameSettings.SkinsSettings);
+            skinDisplay.SetSkin(player.skin);
             
             _enemies.Add(key, newEnemy);
         }

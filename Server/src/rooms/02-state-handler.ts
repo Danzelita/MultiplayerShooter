@@ -1,7 +1,11 @@
 import { Room, Client } from "colyseus";
 import { Schema, type, MapSchema } from "@colyseus/schema";
+import { uint16 } from "@colyseus/schema/lib/encoding/decode";
 
 export class Player extends Schema {
+    @type("uint16")
+    skin = 0;
+
     @type("uint16")
     loss = 0;
 
@@ -47,7 +51,7 @@ export class Player extends Schema {
     @type("boolean")
     cr = false;
     
-    constructor(data : any, position: Vector3){
+    constructor(data : any, position: Vector3, skinIndex: number){
         super();
         this.speed = data.speed;
         this.maxHP = data.hp;
@@ -56,6 +60,8 @@ export class Player extends Schema {
         this.pX = position.X;
         this.pY = position.Y;
         this.pZ = position.Z;
+
+        this.skin = skinIndex;
     }
 }
 export class Loot extends Schema {
@@ -72,10 +78,10 @@ export class Loot extends Schema {
     pZ = Math.floor(Math.random() * 25) - 12.5;
 
 
-    constructor(lootId: string, position: Vector3) {
+    constructor(lootType: string, position: Vector3) {
         super();
         
-        this.type = lootId;
+        this.type = lootType;
         this.pX = position.X;
         this.pY = position.Y;
         this.pZ = position.Z;
@@ -93,7 +99,8 @@ export class State extends Schema {
 
     createPlayer(sessionId: string, data: any) {
         const position = this.playerSpawnPoints.GetNextPoint();
-        this.players.set(sessionId, new Player(data, position));
+        const skinIndex = this.GetNextSkinIndex();
+        this.players.set(sessionId, new Player(data, position, skinIndex));
     }
 
     removePlayer(sessionId: string) {
@@ -119,8 +126,15 @@ export class State extends Schema {
         player.cr = data;
     }
 
-    CreateLoot(lootId: string, position: Vector3){
-        this.loots.set(this.CreateUnicId(), new Loot(lootId, position));
+    CreateLoot(lootType: string, position: Vector3){
+        this.loots.set(this.CreateUnicId(), new Loot(lootType, position));
+    }
+
+    CreateLootsByTypeAtNextPosition(lootType: string, value: number){
+        for (let i = 0; i < value; i++) {
+            const position = this.lootSpawnPoints.GetNextPoint();
+            this.CreateLoot(lootType, position);
+        }
     }
 
     id = 0;
@@ -132,25 +146,20 @@ export class State extends Schema {
     playerSpawnPoints: SpawnPoints;
     lootSpawnPoints: SpawnPoints;
 
-    GetRandomLootId(){
-    const lootIds = [
-        "LootAutomatic", 
-        "LootGrenadeLauncher", 
-        "LootMinigun",
-        "LootPistol",
-        "LootRocketLauncher",
-        "LootShotGun",
-    ];
-    const randomIndex = Math.floor(Math.random() * lootIds.length);
-    return lootIds[randomIndex];
-}
+    skinsLenght = 6;
+    lastSkinIndex = 0;
+    GetNextSkinIndex() {
+        const index = this.lastSkinIndex;
+        this.lastSkinIndex = (this.lastSkinIndex + 1) % this.skinsLenght;
+        return index;
+    }
 }
 
 export class StateHandlerRoom extends Room<State> {
-    maxClients = 8;
+    maxClients = 12;
 
     onCreate (options) {
-        this.setPatchRate(100);
+        this.setPatchRate(20);
         console.log("StateHandlerRoom created!", options);
 
         this.setState(new State());
@@ -164,13 +173,15 @@ export class StateHandlerRoom extends Room<State> {
         const parsedLootSpawnPoints = JSON.parse(jsonLootSpawnPoints);
         this.state.lootSpawnPoints = new SpawnPoints(parsedLootSpawnPoints);
 
-        for (let i = 0; i < this.state.lootSpawnPoints.Points.length; i++) {
-            const position = this.state.lootSpawnPoints.GetNextPoint();
-            const lootType = this.state.GetRandomLootId();
+        this.state.lootSpawnPoints.Mix();
 
-            this.state.CreateLoot(lootType, position);
-        }
-        
+        this.state.CreateLootsByTypeAtNextPosition("LootPistol", 4);
+        this.state.CreateLootsByTypeAtNextPosition("LootAutomatic", 4);
+        this.state.CreateLootsByTypeAtNextPosition("LootShotGun", 4);
+        this.state.CreateLootsByTypeAtNextPosition("LootMinigun", 3);
+        this.state.CreateLootsByTypeAtNextPosition("LootGrenadeLauncher", 3);
+        this.state.CreateLootsByTypeAtNextPosition("LootRocketLauncher", 3);
+        this.state.CreateLootsByTypeAtNextPosition("LootBanana", 3);
 
         this.onMessage("move", (client, data) => {
             this.state.setMovement(client.sessionId, data);
@@ -238,9 +249,9 @@ export class StateHandlerRoom extends Room<State> {
         client.send("hello", "world");
         this.state.createPlayer(client.sessionId, data);
 
-        if (this.clients.length > 7) {
-            this.lock();
-        }
+        //if (this.clients.length > 7) {
+        //    this.lock();
+        //}
     }
 
     onLeave (client) {
@@ -275,18 +286,19 @@ class SpawnPoints {
             (p: any) => new Vector3(p.X, p.Y, p.Z)
         );
     }
-//Всё, дальше я сам
     lastPointIndex = 0;
-    GetNextPoint(){
-        const lenght = this.Points.length;
-
-        if (this.lastPointIndex >= lenght - 1) {
-            this.lastPointIndex = 0;
-        }
-        else{
-            this.lastPointIndex++;
-        }
-
+    GetNextPoint() {
+        this.lastPointIndex = (this.lastPointIndex + 1) % this.Points.length;
         return this.Points[this.lastPointIndex];
+    }
+
+    Mix(){
+        for (let i = 0; i < this.Points.length; i++) {
+            const randomIndex = Math.floor(Math.random() * this.Points.length);
+            
+            const previusValue = this.Points[i];
+            this.Points[i] = this.Points[randomIndex];
+            this.Points[randomIndex] = previusValue;
+        }
     }
 }

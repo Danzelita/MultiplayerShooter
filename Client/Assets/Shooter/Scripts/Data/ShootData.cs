@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System;
 
 namespace Shooter.Scripts.Data
 {
@@ -7,6 +7,8 @@ namespace Shooter.Scripts.Data
     {
         public string pKey;
         public string GunId;
-        public List<BulletData> Bullets;
+        public Vector3Data Pos;
+        public Vector3Data Dir;
+        public int Seed;
     }
 }

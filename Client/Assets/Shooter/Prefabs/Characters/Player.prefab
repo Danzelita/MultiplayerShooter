@@ -984,6 +984,7 @@ GameObject:
   - component: {fileID: 6852111412518848779}
   - component: {fileID: 4447842028431070636}
   - component: {fileID: 5540582147839100261}
+  - component: {fileID: 6384930009332108081}
   m_Layer: 9
   m_Name: Player
   m_TagString: Untagged
@@ -1139,6 +1140,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Gameplay.Characters.Player.PlayerLootCollector
   _playerInventory: {fileID: 4447842028431070636}
   _triggerObserver: {fileID: 6700502471209442207}
+--- !u!114 &6384930009332108081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875203837076426252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a591c93b5d8044969150786c9eff2024, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Shooter.Scripts.Gameplay.Characters.SkinDisplay
+  _meshRenderers:
+  - {fileID: 6801581505994986453}
+  - {fileID: 4573753134789338087}
 --- !u!1 &8898927646326266365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1840,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shooter.Code.Logic.AttachToPoint
   _target: {fileID: 8984013814345886811}
+--- !u!23 &4573753134789338087 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7059552776166667275, guid: 5b9e5150db7b2204d98b5f69a683d1e6, type: 3}
+  m_PrefabInstance: {fileID: 6809915317095749612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5633034563003547026 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1201655096319486590, guid: 5b9e5150db7b2204d98b5f69a683d1e6, type: 3}
@@ -1832,6 +1853,11 @@ Transform:
 --- !u!95 &6595920943644552575 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 362758299239971475, guid: 5b9e5150db7b2204d98b5f69a683d1e6, type: 3}
+  m_PrefabInstance: {fileID: 6809915317095749612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6801581505994986453 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 64668538312934457, guid: 5b9e5150db7b2204d98b5f69a683d1e6, type: 3}
   m_PrefabInstance: {fileID: 6809915317095749612}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7010487458390863826 stripped
